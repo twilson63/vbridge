@@ -3,7 +3,7 @@
 A modular collection of libraries that embrace the component like pattern of application building using ImmutableJS, Virtual-DOM, and HyperScript.  Inspired by Mercury and allows the implementor to choose their own eventing/routing system, `Bridge` just focuses on state and rendering.
 
 ``` js
-var app = require('bridge');
+var app = require('vbridge');
 var h = app.h;
 
 var state = app.state({
