@@ -16,3 +16,11 @@ app(document.body, state, function render(state) {
 ```
 
 The state is an ImmutableJS Cursor which enables you to get and set based on getters and setters.
+
+
+## Install
+
+``` js
+npm install vbridge
+```
+
