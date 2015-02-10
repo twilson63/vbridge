@@ -26,4 +26,4 @@ npm install vbridge
 
 ## In the Wild
 
-[http://html2hscript.herokuapp.com/](http://html2hscript.herokuapp.com/) [Gitub](https://github.com/twilson63/html2hscript.herokuapp.com)
+* [http://html2hscript.herokuapp.com/](http://html2hscript.herokuapp.com/) [Gitub](https://github.com/twilson63/html2hscript.herokuapp.com)
