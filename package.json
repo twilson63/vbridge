@@ -1,6 +1,6 @@
 {
   "name": "vbridge",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A modular framework based on Mercury, ImmutableJS and Virtual-DOM",
   "main": "index.js",
   "scripts": {
