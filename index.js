@@ -9,19 +9,35 @@ var h = require('virtual-dom/virtual-hyperscript');
 
 app.h = h;
 app.state = state;
+
+app.Delegator = require('dom-delegator');
+
+app.channel = function(fn, state) {
+  return app.Delegator.allocateHandle(fn.bind(null, state));
+};
+/* event handlers */
+app.send = require('value-event/event');
+app.sendValue = require('value-event/value');
+app.sendClick = require('value-event/click');
+//app.sendSubmit = require('value-event/submit');
+//app.sendChange = require('value-event/change');
+//app.sendKey = require('value-event/key');
+
 module.exports = app;
 
 function state(data) {
-  return Cursor.from(Immutable.fromJS(data));
+  var cursor = Cursor.from(Immutable.fromJS(data));
+  return cursor;
 }
 
-function app(elem, state, render) {
+function app(elem, state, render, opts) {
   var observ = toObserv(state);
+  app.Delegator(opts);
   var loop = main(observ(), render, extend({
     diff: diff,
     create: create,
-    patch:patch
-  }));
+    patch: patch
+  }, opts));
   if (elem) {
     elem.appendChild(loop.target);
   }

@@ -7,7 +7,7 @@ var newRecordComponent = require('./components/new-record-component');
 
 var state = app.state({
   title: 'BeepBoop',
-  href: '/'
+  href: window.location.href
 });
 
 // init components
