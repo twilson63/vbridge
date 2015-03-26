@@ -1,6 +1,6 @@
 {
   "name": "vbridge",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "A modular framework based on VirtualDom, ImmutableJS and DomDelegator",
   "main": "index.js",
   "scripts": {
