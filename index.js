@@ -1,6 +1,5 @@
 var main = require('main-loop')
 var Delegator = require('dom-delegator')
-var State = require('state-change')
 var vdom = {
   diff: require('virtual-dom/diff'),
   create: require('virtual-dom/create-element'),
@@ -8,13 +7,13 @@ var vdom = {
 }
 
 app.h = require('virtual-dom/h')
+app.State = require('state-change')
+
 module.exports = app;
 
 function app (elem, state, render) {
   Delegator()
-  var cursor = State(state)
-  var loop = main(cursor, render, vdom)
-  if (elem) elem.appendChild(loop.target)
-  State.change(cursor, loop.update)
-  return cursor
+  var loop = main(state, render, vdom)
+  elem.appendChild(loop.target)
+  app.State.change(state, loop.update)
 }

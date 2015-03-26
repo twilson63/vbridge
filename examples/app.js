@@ -1,7 +1,8 @@
 var app = require('../');
 var h = app.h
+var state = app.State({foo: 'bar'})
 
-var state = app(document.body, {foo: 'bar'}, function (state) {
+app(document.body, state, function (state) {
   return h('h1', state.get('foo'))
 })
 
