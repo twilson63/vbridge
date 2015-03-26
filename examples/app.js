@@ -1,38 +1,13 @@
-var app = require('bridge');
-var page = require('page');
+var app = require('../');
+var h = app.h
 
-// get components
-var homeComponent = require('./components/home-component');
-var newRecordComponent = require('./components/new-record-component');
-
-var state = app.state({
-  title: 'BeepBoop',
-  href: window.location.href
-});
-
-// init components
-homeComponent(state);
-newRecordComponent(state);
-
-page();
-
-// manage render tree
-app(document.body, state, function(state) {
-  var content = h('h1', 'Not Found');
-
-  if (state.get('href') === '/home') {
-    content = homeComponent.render(state.home);
-  }
-
-  return h('div.container', [
-    // menu
-    h('ul.menu', [
-      h('li', [
-        h('a', { href: '/home'}, 'Home'),
-        h('a', { href: '/records/new'}, 'NewRecord')
-      ])
-    ]),
-    content
-  ])
-
+var state = app(document.body, {foo: 'bar'}, function (state) {
+  return h('h1', state.get('foo'))
 })
+
+setTimeout(function() {
+  state.set('foo', 'bam')
+}, 4000)
+
+window.state = state;
+

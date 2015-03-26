@@ -6,18 +6,17 @@ A modular collection of libraries that embrace the component like pattern of app
 var app = require('vbridge');
 var h = app.h;
 
-var state = app.state({
+var initialState = {
   title: 'Hello World' 
-});
+};
 
-app(document.body, state, function render(state) {
+var state = app(document.body, initialState, function render(state) {
   return app.h('h1', state.get('title'));
 });
 ```
 
 The state is an ImmutableJS Cursor which enables you to get and set based on getters and setters.
 
-<<<<<<< HEAD
 ## What about events and routing?
 
 * [page.js]() works great with bridge and there are some examples to take a look.
